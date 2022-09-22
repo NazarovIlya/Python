@@ -8,6 +8,6 @@ else:
     numberN *= -1
 if numberN > minN:
     while minN < numberN:
-        print(f'{minN} ')
+        print(f'{minN} ', end = '')
         minN += 1
 else: print(0)
