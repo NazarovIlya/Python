@@ -1,6 +1,6 @@
 # Показать первую цифру дробной части числа.
 
-number = int(input('Введите целое число: '))
-while number > 10:
-    number //= 10 
-print(number)
+number = float(input('Введите дробное число: '))
+round_num = int(number)
+result = (number - round_num)*10
+print(f'Первая цифра дробного числа: {int(number)}')
