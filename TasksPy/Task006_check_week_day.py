@@ -11,11 +11,11 @@ def days(day):
             'Пятница',
             'Суббота',
             'Воскресение']
-    if num < 1 or day < 7:
+    if day < 1 or day > 7:
         print('')
-    elif num >=6:
-        print(f' {week[num - 1]}, выходной день')
+    elif day >=6:
+        print(f' {week[day - 1]}, выходной день')
     else:
-        print(f' {week[num - 1]}, рабочий день')
+        print(f' {week[day - 1]}, рабочий день')
 
 days(num)
