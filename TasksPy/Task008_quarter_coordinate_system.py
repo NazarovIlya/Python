@@ -11,6 +11,10 @@ def find_dimension(x_coordinate, y_coordinate):
             print(f'Точка с заданными координатами(x = {x_coordinate}, y = {y_coordinate}) лежит в третьей плоскости.')
         elif x_coordinate > 0 and y_coordinate < 0:
             print(f'Точка с заданными координатами(x = {x_coordinate}, y = {y_coordinate}) лежит в четвертой плоскости.')
+        elif x_coordinate == 0 and y_coordinate != 0:
+            print(f'Точка с заданными координатами(x = {x_coordinate}, y = {y_coordinate} лежит на оси X.')
+        elif x_coordinate != 0 and y_coordinate == 0:
+            print(f'Точка с заданными координатами(x = {x_coordinate}, y = {y_coordinate} лежит на оси Y.')
     else:
         print('Точка совпадает с точкой отсчета координат, X = 0, Y = 0')
         
