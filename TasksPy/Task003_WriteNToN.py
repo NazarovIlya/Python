@@ -11,6 +11,5 @@ numberN = int(input(f'Введите целое число: '))
 #         print(f'{minN} ', end = '')
 #         minN += 1
 # else: print(0)
-
 for i in range(-numberN, numberN + 1):      # alternative solution
     print(f'{i} ', end = '')
