@@ -12,17 +12,17 @@ def input_list():
 
 
 def find_difference(user_list, signs):
-    temp = 0.0
+    current_value = 0.0
     min_value = float(user_list[0]) % 1
     max_value = float(user_list[0]) % 1
     error_correction = 0.0000000000000001
     for i in user_list:
-        temp = float(i) % 1
-        if temp != 0:
-            if temp > max_value:
-                max_value = temp
-            elif temp < min_value:
-                min_value = temp
+        current_value = float(i) % 1
+        if current_value != 0:
+            if current_value > max_value:
+                max_value = current_value
+            elif current_value < min_value:
+                min_value = current_value
         difference = max_value - min_value + error_correction
         difference = round(difference, 14)
     return difference
