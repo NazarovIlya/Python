@@ -15,6 +15,7 @@ def random_number(count_digits):
         rnd_number %= order
     return rnd_number
 
+
 while(1):
     order = int(input('Задайте порядок случайного числа: '))
     rnd = random_number(order)
