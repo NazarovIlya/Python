@@ -11,7 +11,7 @@ def input_list():
     return user_list
 
 
-def find_difference(user_list, signs):
+def find_difference(user_list):
     current_value = 0.0
     min_value = float(user_list[0]) % 1
     max_value = float(user_list[0]) % 1
@@ -29,6 +29,5 @@ def find_difference(user_list, signs):
 
 
 user_lst = input_list()
-signs = int(input('Сколько знаков после запятой Вы хотите видеть в результирующей?: '))
-result = find_difference(user_lst, signs)
-print(result)
+result = find_difference(user_lst)
+print(f'Разница между максимальным и миниманым дробным значением состовляет {result}')
