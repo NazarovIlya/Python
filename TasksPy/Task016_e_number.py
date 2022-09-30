@@ -10,11 +10,13 @@ def sequence_num(number):
         list.append(result)
     return list
 
+
 def sum_num(list):
     sum = 0
     for i in range(len(list)):
         sum += float(list[i])
     return sum
+
 
 sequence_result = sequence_num(num)
 sum = sum_num(sequence_result)
