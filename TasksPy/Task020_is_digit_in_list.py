@@ -5,6 +5,7 @@ def input_list():
     string = input('Введите значения строк через пробел: ').split(' ')
     return string
 
+
 def find_number(string, number):
         for item in string:
             if number in item:
