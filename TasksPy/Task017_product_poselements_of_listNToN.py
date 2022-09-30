@@ -11,6 +11,7 @@ def input_positions(number):
         list.append(position)
     return list
 
+
 def sequence(number):
     list = []
     if number > 0:
@@ -18,6 +19,7 @@ def sequence(number):
     for n in range(number, number * (-1) + 1):
         list.append(n)
     return list
+
 
 def sequence_for_product(list, positions):
     list_product = []
@@ -30,6 +32,7 @@ def product(list, positions):
     for n in range(len(positions)):
         product *= list[positions[n]]
     return product
+
     
 num_n = int(input('Введите количество элементов: '))
 pos_list = input_positions(num_n)
