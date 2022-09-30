@@ -8,6 +8,7 @@ def new_list(number):
         list.append(random.randint(-100, 100))
     return list
 
+
 def mix(list):
     for i in range(0, len(list)):
         random_index = random.randint(0, len(list) - 1)
