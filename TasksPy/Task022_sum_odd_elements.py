@@ -12,9 +12,9 @@ def input_list():
 
 def sum_list_elements(user_list):
     current_sum = 0
-    for i in user_list:
-        if user_list.index(i) % 2 != 0:
-            current_sum += int(i)
+    for i in range(len(user_list)):
+        if i % 2 != 0:
+            current_sum += int(user_list[i])
     return current_sum
 
 
