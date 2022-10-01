@@ -26,10 +26,10 @@ def nega_fibofibonacci(number):
         negafibo_1 = negafibo_2
         negafibo_2 = negafibo
         negafibo_list_temp.append(negafibo)
-    for i in range(len(negafibo_list_temp)):
-        fibo_temp = negafibo_list_temp.pop()
-        negafibo_list.append(fibo_temp)
-    negafibo_list.extend(fibo_list)
+    for i in range(len(negafibo_list_temp)):    # лучшим решением может быть использование метода спсиков reverse
+        fibo_temp = negafibo_list_temp.pop()    # использование метода спсиков reverse
+        negafibo_list.append(fibo_temp)         # однако данное решение отражает
+    negafibo_list.extend(fibo_list)             # знание методов и способность мыслить алгоритмически
     return negafibo_list
 
 
