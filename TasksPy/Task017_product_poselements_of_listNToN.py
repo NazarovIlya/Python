@@ -27,6 +27,7 @@ def sequence_for_product(list, positions):
         list_product.append(list[positions[n]])
     return list_product
 
+
 def product(list, positions):
     product = 1
     for n in range(len(positions)):
