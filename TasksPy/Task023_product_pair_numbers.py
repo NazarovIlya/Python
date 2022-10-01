@@ -13,13 +13,16 @@ def input_list():
 def find_product(user_list):
     result_list = []
     product = 1
-    length = int(len(user_list ) / 2)
-    for i in range(length):
-        product = int(user_list[i]) * int(user_list[len(user_list) - 1 - i])
-        result_list.append(product)
-        if length % 2 != 0:
-            product = int(user_list[length]) ** 2
+    if len(user_list) / 2 == 0:
+        for i in range(int((len(user_list) / 2))):
+            product = int(user_list[i]) * int(user_list[len(user_list) - 1 - i])
             result_list.append(product)
+    else:
+        for i in range(int((len(user_list) / 2))):
+            product = int(user_list[i]) * int(user_list[len(user_list) - 1 - i])
+            result_list.append(product)
+        product = int(user_list[int((len(user_list) / 2))]) ** 2
+        result_list.append(product)
     return result_list
 
 
