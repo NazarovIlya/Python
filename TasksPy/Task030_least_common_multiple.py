@@ -4,21 +4,25 @@
 
 def input_list():
     user_list = input('Введите два числа через пробел: ').split(' ')
-    return user_list
-
-
-def least_common_multiple(user_list):
     if len(user_list) == 2:
-        first_value = int(user_list[0])
-        second_value = int(user_list[1])
-        multiple = first_value * second_value
-        multiple = first_value * second_value
-        if multiple / first_value == 0 and multiple / second_value == 0:
-            return multiple
+        return user_list
     else:
-        return -1
-    
-    
-number_list = input_list()
-result = least_common_multiple(number_list)
+        print('Введите корректные данные.')
+
+
+def nod(a, b):
+    if b == 0:
+        return a
+    else:
+        return nod(b, a % b)
+
+
+def nok(a, b):
+    return int(abs(a * b) / nod(a, b))
+
+   
+user_str = input_list()
+num_a = int(user_str[0])
+num_b = int(user_str[1])
+result = nok(num_a, num_b)
 print(result)
