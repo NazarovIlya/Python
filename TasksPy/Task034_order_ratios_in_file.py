@@ -12,7 +12,7 @@ def write_to_file_ratois(degree):
     a = random.randint(0, 101)
     b = random.randint(0, 101)
     c = random.randint(0, 101)
-    with open('multiple_task034', 'w') as f:
+    with open('multiple_task034.txt', 'w') as f:
         f.write(f'{a}x^{degree} + {b}x + {c}')
     
 
