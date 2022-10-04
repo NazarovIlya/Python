@@ -7,7 +7,7 @@ def input_list():
     if len(user_list) == 2:
         return user_list
     else:
-        print('Введите корректные данные.')
+        quit('Введите корректные данные.')
 
 
 def nod(a, b):
