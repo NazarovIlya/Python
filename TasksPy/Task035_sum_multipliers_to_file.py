@@ -2,10 +2,10 @@
 # сформировать файл, содержащий сумму многочленов.
 
 
-with open('./task035/file1.txt', 'r') as f1:
+with open('../file1.txt', 'r') as f1:
     file_list_1 = f1.readline().split()
     print(file_list_1)
-with open('./task035/file2.txt', 'r') as f2:
+with open('../file2.txt', 'r') as f2:
     file_list_2 = f2.readline().split()
     print(file_list_2)
 multiple_1 = file_list_1
