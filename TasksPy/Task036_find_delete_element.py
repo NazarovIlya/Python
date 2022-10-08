@@ -43,7 +43,7 @@ def find_delete_element(input_sequence):
 
  
 num = int(input('Введите количество элементов списка: '))
-path_input_file = '../input_data.txt'
+path_input_file = '../input_data_for_task036.txt'
 sequence = get_sequence(num)
 write_sequence_to_file(sequence, path_input_file)
 sequence_from_file = read_list_from_file(path_input_file)
