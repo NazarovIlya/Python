@@ -44,13 +44,12 @@ def player_motion(names, count, item):
 def candy_game(names, count):
     last_candy = 28
     draw = random.randint(0, len(names) - 1)
-    motion = int(input(f'{names[draw]} начинает игру. Сделайте ход, возмите от 1 до {last_candy}: '))
-    if  1 <= motion <= 28:
-        count -= motion
-    else:
-        print(f'{motion} конфет(ы) брать  нельзя, переход хода.')
-    i = 0
-    count = player_motion(names, count, i)
+    if draw == 1:
+        motion = int(input(f'{names[draw]} начинает игру. Сделайте ход, возмите от 1 до {last_candy}: '))
+        if  1 <= motion <= 28:
+            count -= motion
+        else:
+            print(f'{motion} конфет(ы) брать  нельзя, переход хода.')
     while True:
         i = 0
         count = player_motion(names, count, i)
