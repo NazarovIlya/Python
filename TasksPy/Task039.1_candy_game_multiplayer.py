@@ -24,44 +24,78 @@ def greeting(player_count):
     return names_list
 
 
-def player_motion(names, count, item):
-    if count < 28:
+def first_motion(names, count, max_count_for_motion):
+    while True:
+        last_candy = max_count_for_motion
+        draw = random.randint(0, len(names) - 1)
+        motion = int(input(f'{names[draw]} начинает игру. Сделайте ход, возмите от 1 до {last_candy}: '))
+        if  1 <= motion <= max_count_for_motion:
+                count -= motion
+                return count, draw
+        else:
+            print(f'{motion} конфет(ы) брать нельзя, введите корректное значение.')
+
+
+def user_motion_input(names, last_candy, item):
+    while True:
+        motion = int(input(f'{names[item]}, Ваш ход. Выберите от 1 до {last_candy} конфет: '))
+        if motion <= last_candy:
+            if 1 <= motion <= 28:
+                return motion
+            else:
+                print(f'{motion} конфет(ы) брать нельзя, введите корректное значение.')
+
+
+def player_motion(names, count, item, max_count_for_motion):
+    if count < max_count_for_motion:
         last_candy = count
     else:
-        last_candy = 28
+        last_candy = max_count_for_motion
     if count > 0:
-        motion = int(input(f'{names[item]}, Ваш ход. Выберите от 1 до {last_candy} конфет: '))
-        if 1 <= motion <= 28:
+        motion = user_motion_input(names, last_candy, item)
+        if 1 <= motion <= max_count_for_motion:
             count -= motion
-        else:
-            print(f'{motion} конфет(ы) брать нельзя, переход хода.')
-        if count == 0:
-            print('Поздравляем! Вы забрали оставшиеся конфеты и выиграли их все.')
-            quit()
     return count
 
 
-def candy_game(names, count):
-    last_candy = 28
-    draw = random.randint(0, len(names) - 1)
-    if draw == 1:
-        motion = int(input(f'{names[draw]} начинает игру. Сделайте ход, возмите от 1 до {last_candy}: '))
-        if  1 <= motion <= 28:
-            count -= motion
-        else:
-            print(f'{motion} конфет(ы) брать  нельзя, переход хода.')
-    while True:
-        i = 0
-        count = player_motion(names, count, i)
-        i += 1
-        count = player_motion(names, count, i)
-        if count == 0:
-            break
-           
+def check_item(current_item):
+    if current_item == 0:
+        current_item = 1
+        return current_item
+    else:
+        current_item = 0
+        return current_item    
+    
 
-candy_count = int(input('Введите количество конфет, участвующих в игре: ')) #! 2021
+def check_candy_count(candy_count, max_count_for_motion):
+    count = max_count_for_motion * 2 + 2
+    if candy_count < count:
+        print(f'Ошибка ввода. Количество конфет должно быть не меньше {count}.')
+        quit()
+        
+        
+def game_over(count):
+    if count == 0:
+        print('Поздравляем! Вы забрали оставшиеся конфеты и выиграли их все.')
+        quit()
+        
+
+def candy_game(names, count, max_count_for_motion):
+    count, first_item = first_motion(names, count, max_count_for_motion)
+    current_item = check_item(first_item)
+    while True:
+        count = player_motion(names, count, current_item, max_count_for_motion)
+        current_item = check_item(current_item)
+        game_over(count)
+
+    
+           
 player_count = 2 #!
+max_candy_count = 28 #!
+candy_count = int(input('Введите количество конфет, участвующих в игре: ')) #! 2021
+check_candy_count(candy_count, max_candy_count)
 player_names = greeting(player_count)
-candy_game(player_names, candy_count)
+candy_game(player_names, candy_count, max_candy_count)
+
 
 
