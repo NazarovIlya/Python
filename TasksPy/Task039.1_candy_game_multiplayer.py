@@ -60,7 +60,7 @@ def candy_game(names, count):
            
 
 candy_count = int(input('Введите количество конфет, участвующих в игре: ')) #! 2021
-player_count = 2
+player_count = 2 #!
 player_names = greeting(player_count)
 candy_game(player_names, candy_count)
 
