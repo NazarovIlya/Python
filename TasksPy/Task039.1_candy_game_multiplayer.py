@@ -84,6 +84,7 @@ def candy_game(names, count, max_count_for_motion):
     count, first_item = first_motion(names, count, max_count_for_motion)
     current_item = check_item(first_item)
     while True:
+        print(f'На столе осталось {count} конфет.')
         count = player_motion(names, count, current_item, max_count_for_motion)
         current_item = check_item(current_item)
         game_over(count)

@@ -35,7 +35,7 @@ def first_motion(names, count, max_count_for_motion):
             else:
                 print(f'{motion} конфет(ы) брать нельзя, введите корректное значение.')
         else:
-            print(f'Ходит {names[draw]}', end= '...')
+            print(f'Ходит {names[draw]}')
             motion = bot_AI_motion(count, last_candy)
             count -= motion
             print(f'{names[draw]} сходил.')
@@ -62,10 +62,10 @@ def bot_AI_motion(count, max_candy_count):
     else:
         atemp = count // max_candy_count
         if atemp == 2:
-            count = count // 2 - 1
+            count = count // 2
             return count
         else:
-            return count
+            return count - (max_candy_count + 1)
         
 
 def bot_player_motion(names, count, item, max_count_for_motion):
@@ -123,6 +123,7 @@ def candy_game(names, count, max_count_for_motion):
     count, first_item = first_motion(names, count, max_count_for_motion)
     current_item = check_item(first_item)
     while True:
+        print(f'На столе осталось {count} конфет.')
         count = bot_player_motion(names, count, current_item, max_count_for_motion)
         game_over(count, current_item)
         current_item = check_item(current_item)
