@@ -37,7 +37,7 @@ def first_motion(names, count, max_count_for_motion):
                 print(f'{motion} конфет(ы) брать нельзя, введите корректное значение.')
         else:
             print(f'Ходит {names[draw]}', end= '...')
-            motion = simple_bot_motion(names, draw, last_candy)
+            motion = simple_bot_motion(last_candy)
             count -= motion
             print(f'{names[draw]} сходил.')
             return count, draw
@@ -52,12 +52,9 @@ def user_motion_input(names, last_candy, item):
                     return motion
                 else:
                     print(f'{motion} конфет(ы) брать нельзя, введите корректное значение.')
-        else:
-            motion = simple_bot_motion(names, item, last_candy)
-            return motion
             
             
-def simple_bot_motion(names, item, max_candy_count):
+def simple_bot_motion(max_candy_count):
     bot_random_count = random.randint(1, max_candy_count)
     return bot_random_count
 
@@ -79,7 +76,7 @@ def bot_player_motion(names, count, item, max_count_for_motion):
             last_candy = max_count_for_motion
         if count > 0:
             print(f'Ходит {names[item]}', end= '...')
-            motion = simple_bot_motion(names, item, last_candy)
+            motion = simple_bot_motion(last_candy)
             count -= motion
             sleep(1)
             print(f'{names[item]} сходил.')
