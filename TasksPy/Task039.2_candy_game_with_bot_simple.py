@@ -129,6 +129,3 @@ candy_count = int(input('Введите количество конфет, уч�
 check_candy_count(candy_count, max_candy_count)
 player_names = greeting()
 candy_game(player_names, candy_count, max_candy_count)
-
-
-
