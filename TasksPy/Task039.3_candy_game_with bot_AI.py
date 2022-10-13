@@ -65,7 +65,12 @@ def bot_AI_motion(count, max_candy_count):
             count = count // 2
             return count
         else:
-            return count - (max_candy_count + 1)
+            if count == max_candy_count + 1:
+                bot_random_count = random.randint(1, max_candy_count)
+                return bot_random_count
+            else:
+                return count - (max_candy_count + 1)
+            return
         
 
 def bot_player_motion(names, count, item, max_count_for_motion):
