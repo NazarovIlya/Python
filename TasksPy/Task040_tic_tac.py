@@ -28,12 +28,44 @@ def step_game_map(step, symbol):
       
       
 def get_result():
-    win = ""
+    win = ''
     for i in win_lines:
         if game_map[i[0]] == "X" and game_map[i[1]] == "X" and game_map[i[2]] == "X":
             win = "X"
         if game_map[i[0]] == "O" and game_map[i[1]] == "O" and game_map[i[2]] == "O":
-            win = "O"   
+            win = "O"
+            
+        if game_map[i[3]] == "X" and game_map[i[4]] == "X" and game_map[i[5]] == "X":
+            win = "X"
+        if game_map[i[3]] == "X" and game_map[i[4]] == "X" and game_map[i[5]] == "X":
+            win = "O"
+            
+        if game_map[i[6]] == "X" and game_map[i[7]] == "X" and game_map[i[8]] == "X":
+            win = "X"
+        if game_map[i[6]] == "X" and game_map[i[7]] == "X" and game_map[i[8]] == "X":
+            win = "O"  
+             
+        if game_map[i[0]] == "X" and game_map[i[3]] == "X" and game_map[i[6]] == "X":
+            win = "X"
+        if game_map[i[0]] == "O" and game_map[i[3]] == "O" and game_map[i[6]] == "O":
+            win = "O"
+        if game_map[i[1]] == "X" and game_map[i[4]] == "X" and game_map[i[7]] == "X":
+            win = "X"
+        if game_map[i[1]] == "O" and game_map[i[4]] == "O" and game_map[i[7]] == "O":
+            win = "O"
+        if game_map[i[2]] == "X" and game_map[i[5]] == "X" and game_map[i[8]] == "X":
+            win = "X"
+        if game_map[i[2]] == "O" and game_map[i[5]] == "O" and game_map[i[8]] == "O":
+            win = "O"
+        if game_map[i[0]] == "X" and game_map[i[4]] == "X" and game_map[i[8]] == "X":
+            win = "X"
+        if game_map[i[0]] == "O" and game_map[i[4]] == "O" and game_map[i[8]] == "O":
+            win = "O"
+        if game_map[i[2]] == "X" and game_map[i[4]] == "X" and game_map[i[6]] == "X":
+            win = "X"
+        if game_map[i[2]] == "O" and game_map[i[4]] == "O" and game_map[i[6]] == "O":
+            win = "O" 
+                
     return win
 
 
@@ -59,5 +91,5 @@ while game_over == False:
     
     player_1 = not(player_1)
     
-    output_game_map()
-    print('Победил, ', win)        
+output_game_map()
+print('Победил, !!!', win)        
