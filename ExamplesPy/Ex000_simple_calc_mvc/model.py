@@ -30,3 +30,18 @@ def div_int_two_num():
 
 def div_mod_two_num():
     return value_a % value_b
+
+
+def do_action(symbol):
+    if symbol == '+':
+        return sum_two_num()
+    elif symbol == '-':
+        return sub_two_num()
+    elif symbol == '*':
+        return mult_two_num()
+    elif symbol == '/':
+        return div_two_num()
+    elif symbol == '//':
+        return div_int_two_num()
+    elif symbol == '%':
+        return div_mod_two_num()
