@@ -1,4 +1,7 @@
-import controller
+import controller as c
+import os
 
 
-run_appication()
+clear = lambda: os.system('cls')
+clear()
+c.run_application()

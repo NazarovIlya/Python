@@ -6,7 +6,7 @@ def read_phonebook_from_txt(file_path_txt):
 
 def read_phonebook_from_csv(file_path_csv):
     with open(file_path_csv, 'r', encoding= 'utf-8') as file:
-        f = file.read().replace(',', '')
+        f = file.read()
     return f
 
 
