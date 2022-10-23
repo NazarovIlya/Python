@@ -37,3 +37,9 @@ def delete_row_by_somename_str(name, value):
         return False
 
 
+def clear_table():
+    db.curs.execute('DELETE FROM personal;')
+    db.d_base.commit()
+    print(f'Таблица очищена. Удалено {db.curs.rowcount} строк. ')
+    
+
