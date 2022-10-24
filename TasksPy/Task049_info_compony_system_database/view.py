@@ -119,7 +119,7 @@ def menu():
             4 - чтобы внести запись
             5 - чтобы удалить запись
             6 - чтобы выйти\n''')
-        if choice != '1' and choice != '2' and choice != '3' and choice != '4':
+        if choice != '1' and choice != '2' and choice != '3' and choice != '4' and choice != '5' and choice != '6':
             print('Ошибка. Повторите ввод.')
         else:
             break
