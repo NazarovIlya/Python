@@ -23,6 +23,10 @@ def run_application():
         menu_choice = v.menu()
         if menu_choice == '1':
             v.output_table_to_console()
+        elif menu_choice == '2':
+            personal_info = v.input_person_info(personal_titles)
+            is_true = m.insert_row(personal_info)
+            v.is_insert(is_true)       
         else:
             break
                     
