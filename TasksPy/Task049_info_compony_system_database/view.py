@@ -1,4 +1,3 @@
-import re
 import data_base_init as db
 
 
