@@ -1,6 +1,7 @@
 import data_base_init as db
 
 
+
 def insert_row(personal_info):
     try:
         db.curs.executemany("INSERT INTO personal VALUES(null, ?, ?, ?, ?, ?)", personal_info)
@@ -22,9 +23,10 @@ def select_row_by_id(name_id):
 
 def select_row_by_somename_str(name, value):
     try:
-        db.curs.execute(f'SELECT * FROM personal {name} WHERE LIKE "{value}";')
-        res = db.curs.fetchmany()
-        print(*res)
+        db.curs.execute(f'SELECT * FROM personal WHERE {name} LIKE "{value}";')
+        res = db.curs.fetchall()
+        for i in res:
+            print(*i)
         return True
     except:
         return False
