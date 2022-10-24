@@ -24,8 +24,7 @@ def select_row_by_somename_str(name, value):
     try:
         db.curs.execute(f'SELECT * FROM personal WHERE {name} LIKE "{value}";')
         res = db.curs.fetchall()
-        for i in res:
-            print(*i)
+        print(*i)
         return True
     except:
         return False

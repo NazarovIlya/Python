@@ -33,23 +33,19 @@ def run_application():
                     number = v.input_select_id()
                     is_true = m.select_row_by_id(number)
                     v.is_select(is_true)
+                    v.exit_program()
                     break
                 elif choice == '2':
-                    name_list = db.title_list
-                    name_list_en = db.title_list_en
-                    name, value = v.input_select_name(name_list, name_list_en)
+                    name, value = v.input_select_name(personal_titles, personal_titles_en)
                     is_true = m.select_row_by_somename_str(name, value)
                     v.is_select(is_true)
+                    v.exit_program()
                     break
         elif menu_choice == 3:
-            name, value = v.input_select_name()
-            is_true = m.select_row_by_somename_str(name, value)
-            v.is_select(is_true)
-        elif menu_choice == 4:
             personal_info = v.input_person_info(personal_titles)
             is_true = m.insert_row(personal_info)
             v.is_insert(is_true)
-        elif menu_choice == 5:
+        elif menu_choice == 4:
             while True:
                 choice = input('Вы хотите удалить конкретную запись по id (нажать 1) или несколько по кому-либо значению(нажать 2)?:\t')
                 if choice != '1' and choice != '2':
@@ -58,14 +54,14 @@ def run_application():
                     number = v.input_delete_id()
                     is_true = m.delete_row_by_id(number)
                     v.is_deleted(is_true)
+                    v.exit_program()
                     break
                 elif choice == '2':
-                    name_list = db.title_list
-                    name_list_en = db.title_list_en
-                    name, value = v.input_delete_name(name_list, name_list_en)
+                    name, value = v.input_delete_name(personal_titles, personal_titles_en)
                     is_true = m.delete_row_by_somename_str(name, value)
                     v.is_deleted(is_true)
+                    v.exit_program()
                     break
-        elif menu_choice == 6:
+        elif menu_choice == 5:
             print('Удачи! Ждем еще)))')
             break
