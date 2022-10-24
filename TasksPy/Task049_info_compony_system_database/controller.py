@@ -25,9 +25,22 @@ def run_application():
         if menu_choice == 1:
             v.output_table_to_console()
         elif menu_choice == 2:
-            number = v.input_select_id(personal_titles, personal_titles_en)
-            is_true = m.select_row_by_id(number)
-            v.is_select(is_true)
+            while True:
+                choice = input('Вы хотите просмотреть конкретную запись по id (нажать 1) или несколько по кому-либо значению(нажать 2)?:\t')
+                if choice != '1' and choice != '2':
+                    print('Ошибка. Повторите ввод.')
+                elif choice == '1':
+                    number = v.input_select_id()
+                    is_true = m.select_row_by_id(number)
+                    v.is_select(is_true)
+                    break
+                elif choice == '2':
+                    name_list = db.title_list
+                    name_list_en = db.title_list_en
+                    name, value = v.input_select_name(name_list, name_list_en)
+                    is_true = m.select_row_by_somename_str(name, value)
+                    v.is_select(is_true)
+                    break
         elif menu_choice == 3:
             name, value = v.input_select_name()
             is_true = m.select_row_by_somename_str(name, value)
