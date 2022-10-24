@@ -12,6 +12,22 @@ def input_person_info(titles):
         personal_info.append(tuple(name_list))
     return personal_info
 
+def input_select_name(name_list, name_list_en):
+    name = ''
+    value = ''
+    while True:
+        name, value = input(f'Введите название({name_list[0]}, {name_list[1]}, {name_list[2]}) и значение колонки для строки, которую(ые) хотите просмотреть: \t').split()
+        if name.isdigit() or value.isdigit():
+            print('Ошибка ввода, корректное строковое значение.')
+        else:
+            if name == name_list[0]:
+                name = name_list_en[0]
+            elif name == name_list[1]:
+                name = name_list_en[1]
+            elif name == name_list[2]:
+                name = name_list_en[2]
+        return name, value
+
 
 def input_delete_name(name_list, name_list_en):
     name = ''
@@ -98,10 +114,11 @@ def menu():
         choice = input('''
             Выберите дейстие. Введите:\n
             1 - чтобы просмотреть таблицу
-            2 - чтобы показать запись
-            3 - чтобы внести запись
-            4 - чтобы удалить запись
-            5 - чтобы выйти\n''')
+            2 - чтобы показать запись по id
+            3 - чтобы показать запись(си) по значению колонки
+            4 - чтобы внести запись
+            5 - чтобы удалить запись
+            6 - чтобы выйти\n''')
         if choice != '1' and choice != '2' and choice != '3' and choice != '4':
             print('Ошибка. Повторите ввод.')
         else:
