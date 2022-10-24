@@ -42,8 +42,12 @@ def input_delete_id():
 
 
 def output_table_to_console():
-    for i in db.curs.execute('SELECT * FROM  personal'):
-        print(*i)
+    count = db.curs.rowcount
+    if count < 1:
+        print('\n\t\tТАБЛИЦА ПУСТА.')
+    else:
+        for i in db.curs.execute('SELECT * FROM  personal'):
+            print(*i)
         
         
 def is_insert(is_true):
