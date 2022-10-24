@@ -26,34 +26,24 @@ def run_application():
         elif menu_choice == '2':
             personal_info = v.input_person_info(personal_titles)
             is_true = m.insert_row(personal_info)
-            v.is_insert(is_true)       
-        else:
+            v.is_insert(is_true)
+        elif menu_choice == '3':
+            while True:
+                choice = input('Вы хотите удалить конкретную запись по id (нажать 1) или несколько по кому-либо значению(нажать 2)?:\t')
+                if choice != '1' and choice != '2':
+                    print('Ошибка. Повторите ввод.')
+                elif choice == '1':
+                    number = v.input_delete_id()
+                    is_true = m.delete_row_by_id(number)
+                    v.is_deleted(is_true)
+                    break
+                elif choice == '2':
+                    name_list = db.title_list
+                    name_list_en = db.title_list_en
+                    name, value = v.input_delete_name(name_list, name_list_en)
+                    is_true = m.delete_row_by_somename_str(name, value)
+                    v.is_deleted(is_true)
+                    break
+        elif menu_choice == '4':
+            print('Удачи! Ждем еще)))')
             break
-                    
-
-    
-    
-    # personal_info = []
-    # person = v.input_person_info(personal_titles)
-    # personal_info.append(person)
-    
-    # INSERT
-    # personal_info = v.input_person_info(personal_titles)
-    # is_true = m.insert_row(personal_info)
-    # v.is_insert(is_true)
-    
-    
-    # DELETE BY ID
-    
-    # number = v.input_delete_id()
-    # is_true = m.delete_row_by_id(number)
-    # v.is_deleted(is_true)
-    
-
-    # DELETE BY COLUMN NAME
-    
-    # name_list = db.title_list
-    # name_list_en = db.title_list_en
-    # name, value = v.input_delete_name(name_list, name_list_en)
-    # is_true = m.delete_row_by_somename_str(name, value)
-    # v.is_deleted(is_true)
