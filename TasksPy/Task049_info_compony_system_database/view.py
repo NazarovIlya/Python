@@ -1,14 +1,17 @@
+import re
 import data_base_init as db
 
 
 def input_person_info(titles):
     name_list = []
     for i in titles:
-        name = input(f'Введите значения для поля {i}:\t')
+        name = input(f'Введите значения для поля "{i}":\t')
         if i.isdigit() == True:
             name = int(name)
         name_list.append(name)
-    return tuple(name_list)
+        personal_info = []
+        personal_info.append(tuple(name_list))
+    return personal_info
 
 
 def input_delete_name(name_list, name_list_en):
@@ -43,11 +46,51 @@ def output_table_to_console():
     for i in db.curs.execute('SELECT * FROM  personal'):
         print(*i)
         
+        
+def is_insert(is_true):
+    if is_true == True:
+        print('Строка(ки) успешно добавлена!')
+    else:
+        print('Добавление завершилось неудачей.')
+        
 
 def is_deleted(is_true):
     if is_true == True:
         print('Строка(ки) успешно удалена!')
     else:
         print('Удаление завершилось неудачей.')
+        
+        
+def output_the_table():
+    while True:
+        choice = input('Хотите ли Вы увидеть таблицу,для выбора нажмите y/n (да/нет):\t')
+        if choice == 'y':
+            output_table_to_console()
+            break
+        elif choice == 'n':
+            break
+        else:
+            print('Ошибка. Повторите ввод.')
+            
+            
+def menu():
+    while True:
+        choice = input('''
+            Выберите дейстие. Введите:\n
+            1 - чтобы просмотреть таблицу\n
+            2 - чтобы внести запись\n
+            3 - чтобы удалить запись\n
+            4 - чтобы экспортировать в .txt\n''')
+        if choice != '1' and choice != '2' and choice != '3' and choice != '4':
+            print('Ошибка. Повторите ввод.')
+        else:
+            break
+    return choice
+        
+        
+def exit_program():            
+    choice = input('Для выхода нажмите "q":\t')
+    if choice == 'q':
+        quit()
 
 
