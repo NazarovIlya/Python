@@ -1,9 +1,18 @@
 import data_base_init as db
 
 
+def insert_row(personal_info):
+    try:
+        db.curs.executemany("INSERT INTO personal VALUES(null, ?, ?, ?, ?, ?)", personal_info)
+        db.d_base.commit()
+        return True
+    except:
+        return False
+
+
 def select_row_by_id(name_id):
     try:
-        db.curs.execute(f'SELECT FROM personal WHERE id={name_id}')
+        db.curs.execute(f'SELECT FROM personal WHERE id={name_id};')
         db.d_base.commit()
         return True
     except:
@@ -12,7 +21,7 @@ def select_row_by_id(name_id):
 
 def select_row_by_somename_str(name, value):
     try:
-        db.curs.execute(f'SELECT FROM personal {name} WHERE LIKE "{value}"')
+        db.curs.execute(f'SELECT FROM personal {name} WHERE LIKE "{value}";')
         db.d_base.commit()
         return True
     except:
@@ -21,7 +30,7 @@ def select_row_by_somename_str(name, value):
 
 def delete_row_by_id(name_id):
     try:
-        db.curs.execute(f'DELETE FROM personal WHERE ID={name_id}')
+        db.curs.execute(f'DELETE FROM personal WHERE ID={name_id};')
         db.d_base.commit()
         return True
     except:
