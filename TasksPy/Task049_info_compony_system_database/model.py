@@ -1,7 +1,6 @@
 import data_base_init as db
 
 
-
 def insert_row(personal_info):
     try:
         db.curs.executemany("INSERT INTO personal VALUES(null, ?, ?, ?, ?, ?)", personal_info)
