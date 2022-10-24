@@ -28,6 +28,17 @@ def input_delete_name(name_list, name_list_en):
             elif name == name_list[2]:
                 name = name_list_en[2]
         return name, value
+    
+    
+def input_select_id():
+    number_id = 0
+    while True:
+        number_id = input('Введите значение id для строки, которую хотите просмотреть: \t')
+        if number_id.isdigit():
+            number_id = int(number_id)
+            return number_id
+        else:
+            print('Ошибка ввода, ожидается целое число.')
 
 
 def input_delete_id():
@@ -43,11 +54,17 @@ def input_delete_id():
 
 def output_table_to_console():
     count = db.curs.rowcount
-    if count < 1:
+    if count == 0:
         print('\n\t\tТАБЛИЦА ПУСТА.')
     else:
         for i in db.curs.execute('SELECT * FROM  personal'):
             print(*i)
+        
+def is_select(is_true):
+    if is_true == True:
+        print('Строка(ки) успешно показана!')
+    else:
+        print('Вывод завершилося неудачей.')
         
         
 def is_insert(is_true):
@@ -80,15 +97,16 @@ def menu():
     while True:
         choice = input('''
             Выберите дейстие. Введите:\n
-            1 - чтобы просмотреть таблицу\n
-            2 - чтобы внести запись\n
-            3 - чтобы удалить запись\n
-            4 - чтобы выйти\n''')
+            1 - чтобы просмотреть таблицу
+            2 - чтобы показать запись
+            3 - чтобы внести запись
+            4 - чтобы удалить запись
+            5 - чтобы выйти\n''')
         if choice != '1' and choice != '2' and choice != '3' and choice != '4':
             print('Ошибка. Повторите ввод.')
         else:
             break
-    return choice
+    return int(choice)
         
         
 def exit_program():            

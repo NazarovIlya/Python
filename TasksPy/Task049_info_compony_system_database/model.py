@@ -13,7 +13,9 @@ def insert_row(personal_info):
 def select_row_by_id(name_id):
     try:
         db.curs.execute(f'SELECT FROM personal WHERE id={name_id};')
+        res = db.curs.fetchone()
         db.d_base.commit()
+        print(*res)
         return True
     except:
         return False

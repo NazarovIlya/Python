@@ -21,13 +21,17 @@ def run_application():
             else:
                 print('Ошибка. Повторите ввод.')
         menu_choice = v.menu()
-        if menu_choice == '1':
+        if menu_choice == 1:
             v.output_table_to_console()
-        elif menu_choice == '2':
+        elif menu_choice == 2:
+            number = v.input_select_id()
+            is_true = m.select_row_by_id(number)
+            v.is_select(is_true)
+        elif menu_choice == 3:
             personal_info = v.input_person_info(personal_titles)
             is_true = m.insert_row(personal_info)
             v.is_insert(is_true)
-        elif menu_choice == '3':
+        elif menu_choice == 4:
             while True:
                 choice = input('Вы хотите удалить конкретную запись по id (нажать 1) или несколько по кому-либо значению(нажать 2)?:\t')
                 if choice != '1' and choice != '2':
@@ -44,6 +48,6 @@ def run_application():
                     is_true = m.delete_row_by_somename_str(name, value)
                     v.is_deleted(is_true)
                     break
-        elif menu_choice == '4':
+        elif menu_choice == '5':
             print('Удачи! Ждем еще)))')
             break
