@@ -19,7 +19,7 @@ def get_max(inputList):
     return maxValue
 
 
-def sequence_minusN_toN(numberN):
+def sequence_minusN_to_N(numberN):
     if numberN > 0:                              # My solution
         minN = numberN * -1
     else:
