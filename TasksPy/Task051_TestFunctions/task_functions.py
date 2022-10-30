@@ -20,6 +20,7 @@ def get_max(inputList):
 
 
 def sequence_minusN_to_N(numberN):
+    lst = []
     if numberN > 0:                              # My solution
         minN = numberN * -1
     else:
@@ -27,7 +28,9 @@ def sequence_minusN_to_N(numberN):
         numberN *= -1
     if numberN > minN:
         while minN <= numberN:
-            print(f'{minN} ', end = '')
+            lst.append(minN)
             minN += 1
-    else: print(0)
+    if numberN == 0:
+        lst.append(0)
+    return lst
     
