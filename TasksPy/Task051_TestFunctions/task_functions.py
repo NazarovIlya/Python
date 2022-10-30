@@ -17,3 +17,17 @@ def get_max(inputList):
         if inputList[j] > maxValue:
             maxValue = inputList[j]
     return maxValue
+
+
+def sequence_minusN_toN(numberN):
+    if numberN > 0:                              # My solution
+        minN = numberN * -1
+    else:
+        minN =  numberN
+        numberN *= -1
+    if numberN > minN:
+        while minN <= numberN:
+            print(f'{minN} ', end = '')
+            minN += 1
+    else: print(0)
+    
