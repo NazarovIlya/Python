@@ -8,5 +8,7 @@ result_3 = f'Ни одно число не является квадратом �
                                             (4, 16, result_2),
                                             (5, 5, result_3)])
 
+
 def test_is_squere_good(a, b, excepted):
     assert is_square(a, b) == excepted
+     
