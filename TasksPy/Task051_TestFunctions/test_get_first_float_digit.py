@@ -10,7 +10,5 @@ from task_functions import get_first_float_digit
                                               (-7.76, 7),
                                               (-8.95, 9),
                                               (-6.43, 4)])
-
-
 def test_get_first_float_digit(number, excepted):
     assert get_first_float_digit(number) == excepted

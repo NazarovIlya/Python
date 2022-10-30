@@ -7,6 +7,5 @@ from task_functions import mult
                                             (4, 4, 16),
                                             (-1, 5, -5),
                                             (8, 0, 0)])
-
 def test_mult(a, b, excepted):
     assert mult(a, b) == excepted
