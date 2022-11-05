@@ -1,11 +1,14 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
+from logger import *
 
 
 def hi_command(update: Update, context: CallbackContext):
+    log(update, context)
     update.message.reply_text(f'Hi, {update.effective_user.first_name}!')
     
 def help_command(update: Update, context: CallbackContext):
+    log(update, context)
     update.message.reply_text
     (f'/hi\n'\
     '/sum\n'\
@@ -13,6 +16,7 @@ def help_command(update: Update, context: CallbackContext):
     '/help')
 
 def sum_command(update: Update, context: CallbackContext):
+    log(update, context)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -28,6 +32,7 @@ def sum_command(update: Update, context: CallbackContext):
     
 
 def sub_command(update: Update, context: CallbackContext):
+    log(update, context)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -44,6 +49,7 @@ def sub_command(update: Update, context: CallbackContext):
     
     
 def mult_command(update: Update, context: CallbackContext):
+    log(update, context)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -59,6 +65,7 @@ def mult_command(update: Update, context: CallbackContext):
 
 
 def div_command(update: Update, context: CallbackContext):
+    log(update, context)
     msg = update.message.text
     print(msg)
     items = msg.split()
