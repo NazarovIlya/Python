@@ -3,21 +3,21 @@ from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 from bot_commands import *
 
-token = bt.token
-app = Updater(token)
+TOKEN = bt.TOKEN
+upd = Updater(TOKEN)
 
 
-app.dispatcher.add_handler(CommandHandler("Start", start_command))
-app.dispatcher.add_handler(CommandHandler("hi", hi_command))
+upd.dispatcher.add_handler(CommandHandler("Start", start_command))
+upd.dispatcher.add_handler(CommandHandler("hi", hi_command))
 
-app.dispatcher.add_handler(CommandHandler("sum", sum_command))
-app.dispatcher.add_handler(CommandHandler("sub", sub_command))
-app.dispatcher.add_handler(CommandHandler("mult", mult_command))
-app.dispatcher.add_handler(CommandHandler("div", div_command))
+upd.dispatcher.add_handler(CommandHandler("sum", sum_command))
+upd.dispatcher.add_handler(CommandHandler("sub", sub_command))
+upd.dispatcher.add_handler(CommandHandler("mult", mult_command))
+upd.dispatcher.add_handler(CommandHandler("div", div_command))
 
-app.dispatcher.add_handler(CommandHandler("help", help_command))
+upd.dispatcher.add_handler(CommandHandler("help", help_command))
 
 
+upd.start_polling()
 print('Server started.')
-app.start_polling()
-app.idle()
+upd.idle()
