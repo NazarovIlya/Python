@@ -7,6 +7,7 @@ token = bt.token
 app = Updater(token)
 
 
+app.dispatcher.add_handler(CommandHandler("Start", start_command))
 app.dispatcher.add_handler(CommandHandler("hi", hi_command))
 
 app.dispatcher.add_handler(CommandHandler("sum", sum_command))

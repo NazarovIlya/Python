@@ -54,6 +54,7 @@ def sum_command(update: Update, context: CallbackContext):
 
 def sub_command(update: Update, context: CallbackContext):
     log(update, context)
+    act_instraction(update, command= '/sub', action= 'вычитание')
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -71,6 +72,7 @@ def sub_command(update: Update, context: CallbackContext):
     
 def mult_command(update: Update, context: CallbackContext):
     log(update, context)
+    act_instraction(update, command= '/mult', action= 'умножение')
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -87,6 +89,7 @@ def mult_command(update: Update, context: CallbackContext):
 
 def div_command(update: Update, context: CallbackContext):
     log(update, context)
+    act_instraction(update, command= '/div', action= 'деление')
     msg = update.message.text
     print(msg)
     items = msg.split()
