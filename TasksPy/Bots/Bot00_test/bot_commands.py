@@ -10,7 +10,7 @@ bot_commands = f'/hi - Приветствие.\n'\
         '/div - Деление.\n'\
         '/help - Помощь.'
         
-
+        
 def start_command(update: Update, context: CallbackContext):
     log(update, context)
     update.message.reply_text(
