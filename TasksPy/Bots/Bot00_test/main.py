@@ -1,6 +1,6 @@
-import bot_config as bt
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import Updater, CommandHandler, TypeHandler
+import bot_config as bt
 import bot_commands as bc
 # import 
 
@@ -17,6 +17,7 @@ upd.dispatcher.add_handler(CommandHandler("mult", bc.mult_command))
 upd.dispatcher.add_handler(CommandHandler("div", bc.div_command))
 
 upd.dispatcher.add_handler(CommandHandler("help", bc.help_command))
+upd.dispatcher.add_handler(TypeHandler(Update, bc.input_error))
 
 
 upd.start_polling()
