@@ -4,7 +4,9 @@ import bot_commands as bc
 from logger import *
 
 
+#@log_decorator
 def sum_command(update: Update, context: CallbackContext):
+    logger(update)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -20,10 +22,10 @@ def sum_command(update: Update, context: CallbackContext):
             lst += " + "
         lst += items[-1]
         update.message.reply_text(f'{lst} = {sum_result}')
-        logger(update, context, sum_result)
     
 
 def sub_command(update: Update, context: CallbackContext):
+    logger(update)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -40,10 +42,10 @@ def sub_command(update: Update, context: CallbackContext):
             lst += " - "
         lst += items[-1]
         update.message.reply_text(f'{lst} = {sub_result}')
-        logger(update, context, sub_result)
     
     
 def mult_command(update: Update, context: CallbackContext):
+    logger(update)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -59,10 +61,10 @@ def mult_command(update: Update, context: CallbackContext):
             lst += " * "
         lst += items[-1]
         update.message.reply_text(f'{lst} = {mult_result}')
-        logger(update, context, mult_result)
 
 
 def div_command(update: Update, context: CallbackContext):
+    logger(update)
     msg = update.message.text
     print(msg)
     items = msg.split()
@@ -78,4 +80,3 @@ def div_command(update: Update, context: CallbackContext):
             lst += " * "
         lst += items[-1]
         update.message.reply_text(f'{lst} = {div_result}')  
-        logger(update, context, div_result)
