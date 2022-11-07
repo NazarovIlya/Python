@@ -18,6 +18,7 @@ def main():
     upd.dispatcher.add_handler(CommandHandler("div", sc.div_command))
 
     upd.dispatcher.add_handler(CommandHandler("help", bc.help_command))
+    
     upd.dispatcher.add_handler(TypeHandler(Update, bc.input_error))
 
     upd.start_polling()
