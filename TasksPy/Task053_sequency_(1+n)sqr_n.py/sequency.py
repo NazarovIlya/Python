@@ -4,24 +4,12 @@
 # (1 + n) ** n возвращает [x1, x2, x3, , , , xn]
 # 1.1 (**) с помощью декоратора-логгера создать лог функции (с замером времени выполнения функции)
 
-from functools import wraps
-
-
-def cacher(func):
-    cache = {}
-    
-    @wraps(func)
-    def wrapper(*args):
-        key = args
-        if key not in cache:
-            cache[key] = func(*args)
-        print(cache)
-        return cache[key]
-    return wrapper
-
+from decorators import *
+            
 
 @cacher
-def sequency(number):
+@logger
+def result_of_sequency(number):
     # (1 + n) ** n
     result = 0
     for i in range(number):
@@ -29,11 +17,23 @@ def sequency(number):
     return result
 
 
+@cacher
+@logger
+def sequency(number):
+    # (1 + n) ** n
+    result = 0
+    lst = []
+    for i in range(number):
+        result = (1 + i) ** i
+        lst.append(result)
+    return lst
+
+
 def main():
+    print(sequency(1))
+    print(sequency(3))
     print(sequency(5))
-    print(sequency(8))
-    print(sequency(12))
-    print(sequency(16))
+    print(result_of_sequency(16))
     
     
 if __name__ == '__main__':
