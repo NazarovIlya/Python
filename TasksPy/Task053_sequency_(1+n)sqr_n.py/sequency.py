@@ -32,7 +32,10 @@ def sequency(number):
 def main():
     print(sequency(1))
     print(sequency(3))
-    print(sequency(50))
+    print(sequency(5))
+    print(sequency(8))
+    print(result_of_sequency(8))
+    print(result_of_sequency(12))
     print(result_of_sequency(16))
     
     
