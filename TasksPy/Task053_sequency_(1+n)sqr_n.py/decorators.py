@@ -20,11 +20,10 @@ def cacher(func):
 def logger(func):
     def wrapper(*args, **kwargs):
         start = time.time_ns()
-        result = func(*args, **kwargs) #! без задержки время выполнения == 0
-        time.sleep(0.000000001) #!
+        result = func(*args, **kwargs)
+        # time.sleep(0.000000001) #!
         end = time.time_ns()
         executing_time = end - start
-        #print(executing_time)
         args = args[0]
         with open('log.csv', 'a+', encoding= 'utf-8') as f:
             f.write('')
