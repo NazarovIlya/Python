@@ -14,8 +14,9 @@
 
 # 7. Определить промежутки, на котором f < 0
 
-from sympy import symbols, sin, cos
+from sympy import Symbol, sin, cos, solve, diff
 import matplotlib.pyplot as plt
+
 
 print("2. Определить корни")
 x = Symbol('x')

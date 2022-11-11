@@ -4,6 +4,7 @@ from scipy.optimize import fsolve
 import matplotlib.pyplot as plt
 import numpy
 
+
 # График функции при помощи библиотеки matplotlib:
 x = [x for x in range(-30, 30)]
 y = [(-12 * x ** 4 * sin(cos(x)) - 18 * x ** 3 + 5 * x ** 2 + 10 * x - 30) for
@@ -26,7 +27,7 @@ plot(-12 * x ** 4 * sin(cos(x)) - 18 * x ** 3 + 5 * x ** 2 + 10 * x - 30,
 
 
 # Определить корни
-def f(x):
+def f_roots(x):
     return -12 * x ** 4 * numpy.sin(
         numpy.cos(x)) - 18 * x ** 3 + 5 * x ** 2 + 10 * x - 30
 
@@ -34,15 +35,9 @@ def f(x):
 # Это тригонометрическая функция, имеющая бесконечное количество корней.
 # Можно определить корни только на заданном интервале.
 # Запросим их у пользователя:
-# funcrange = list(
-#     map(int, input('Задайте интервал функции через пробел: ').split()))
-funcrange = [-10, 10]
+funcrange = list(map(int, input('Задайте интервал функции через пробел: ').split()))
 leftnum = min(funcrange)
 rightnum = max(funcrange)
-
-
-# Задайте интервал функции через пробел: -5 5
-
 
 def solution():
     global leftnum, rightnum
@@ -52,13 +47,13 @@ def solution():
     interval = []
 
     while temp < rightnum:
-        if f(temp) >= 0 and f(temp + 1) <= 0:
-            w = fsolve(f, temp)
+        if f_roots(temp) >= 0 and f_roots(temp + 1) <= 0:
+            w = fsolve(f_roots, temp)
             roots.append(*w)
-        if f(temp) <= 0 and f(temp + 1) >= 0:
-            w = fsolve(f, temp)
+        if f_roots(temp) <= 0 and f_roots(temp + 1) >= 0:
+            w = fsolve(f_roots, temp)
             roots.append(*w)
-        if f(temp) > f(temp + 1) < f(temp + 2):
+        if f_roots(temp) > f_roots(temp + 1) < f_roots(temp + 2):
             interval.append(temp + 1)
         temp += 1
     roots = [round(i, 2) for i in roots]
@@ -71,7 +66,7 @@ def func_interval(left, right):
     array = []
     temp = left
     while left < right:
-        array.append([f(left), left])
+        array.append([f_roots(left), left])
         left += 0.1
     if array[0][0] > 0:
         print(f'f > 0 в промежутке {temp, right}')
@@ -82,7 +77,7 @@ def func_interval(left, right):
 
 
 # Вычисляем координаты вершины функции на заданном интервале:
-def maxima_and_minima():
+def maximum_and_minimum():
     roots = solution()
 
     if len(roots) < 2:
@@ -104,7 +99,7 @@ def maxima_and_minima():
                     print('Функция возрастает')
 
 
-maxima_and_minima()
+maximum_and_minimum()
 # Корни уравнения для заданного интервала: [-1.34, 2.27, 4.38]
 # f > 0 в промежутке (-1.34, 2.27)
 # f < 0 в промежутке (2.27, 4.38)
